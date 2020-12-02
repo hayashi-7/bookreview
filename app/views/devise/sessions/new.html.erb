@@ -1,0 +1,23 @@
+<div id=session>
+  <h3 class="regititle">ログイン</h3>
+  <div class="user-container sessions-container">
+    <%= form_with model: @user, url:user_session_path, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class:"entry", id:"email"%>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, class:"entry", id:"password"%>
+          <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+        </div>
+        <div class="actions">
+          <%= f.submit "ログイン", class: "entry-btn" %>
+        </div>
+      
+         <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "entry-btn gestent" , method: :post %>
+     
+    <% end %>
+  </div>
+</div>
